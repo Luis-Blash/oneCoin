@@ -47,8 +47,10 @@ const putUser = async (req, res = response) => {
     res.json(user)
 }
 
-const deleteUser = (req, res = response) => {
-    res.json({ msg: 'delete User' })
+const deleteUser = async (req, res = response) => {
+    const {id} = req.params;
+    await User.findByIdAndUpdate(id,{status: false});
+    res.json({ msg: 'User delete' })
 }
 
 module.exports = {
