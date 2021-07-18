@@ -15,10 +15,13 @@ ENT: no such file or directory, open '/home/luis-blash/snap/postman/133/.config/
 INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
 InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
 IPCClient ~ WindowHandler: New event is received { type: 'window-opened' }
-trap-models~bootstrap - Success"
-1626299336795 main info "window-manager~newSharedWindow: Shell loaded"
-1626299345946 main info "Main~AppEvents - Received booted event for process shared"
-1626299351196 main info "Main~AppEvents - Received booted event for process requester"
+1626325499784 main info "WindowManager~closeHandler - Closed Window (id: 3 )"
+IPCClient ~ WindowHandler: New event is received { type: 'window-closed', windowId: 3 }
+1626325500734 main info "Quitting app"
+n info "Main~AppEvents - Received booted event for process requester"
 INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
 InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
 IPCClient ~ WindowHandler: New event is received { type: 'window-opened' }
+1626325499784 main info "WindowManager~closeHandler - Closed Window (id: 3 )"
+IPCClient ~ WindowHandler: New event is received { type: 'window-closed', windowId: 3 }
+1626325500734 main info "Quitting app"
