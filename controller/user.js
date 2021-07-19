@@ -6,7 +6,7 @@ const { User } = require('../models')
 const getUser = async (req, res = response) => {
     const user = await User.find({ status: true });
 
-    if (!user.length) {
+    if (!user) {
         return res.status(400).json({
             msg: 'User not Found'
         })
