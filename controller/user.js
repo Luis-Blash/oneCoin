@@ -4,14 +4,7 @@ const bcryptjs = require('bcrypt');
 const { User } = require('../models')
 
 const getUser = async (req, res = response) => {
-    const user = await User.find({ status: true });
-
-    if (!user) {
-        return res.status(400).json({
-            msg: 'User not Found'
-        })
-    }
-
+    const user = await User.findById(req.uid);
     res.json(user);
 }
 
@@ -32,21 +25,19 @@ const postUser = async (req, res = response) => {
 }
 
 const putUser = async (req, res = response) => {
-    const { id } = req.params;
     const { status, savings_account, _id, password, ...data } = req.body
 
     // Encrypt
     const salt = bcryptjs.genSaltSync();
     data.password = bcryptjs.hashSync(password, salt);
 
-    const user = await User.findByIdAndUpdate(id, data, {new: true});
+    const user = await User.findByIdAndUpdate(req.uid, data, {new: true});
 
     res.json(user)
 }
 
 const deleteUser = async (req, res = response) => {
-    const { id } = req.params;
-    await User.findByIdAndUpdate(id, { status: false });
+    await User.findByIdAndUpdate(req.uid, { status: false });
     res.json({ msg: 'User delete' })
 }
 
